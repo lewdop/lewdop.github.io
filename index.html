@@ -213,13 +213,9 @@ background: /images/filename.png
 <article class="hentry">
   <header>
     
-      <div class="entry-image-index">
-		  <a href="/posts/code-highlighting-post/" title="Syntax Highlighting Post"><img src="/images/abstract-10.jpg" alt="Syntax Highlighting Post"></a>
-      </div>
-    
     <div class="entry-meta">
          
-		<span class="entry-date date published updated"><time datetime="2013-08-16 00:00:00 &#43;0000 UTC"><a href="/posts/code-highlighting-post/">Aug 16, 2013</a></time></span>
+		<span class="entry-date date published updated"><time datetime="2013-05-22 00:00:00 &#43;0000 UTC"><a href="/posts/sample-post-images/">May 22, 2013</a></time></span>
         
       <span class="entry-reading-time">
         <i class="fa fa-clock-o"></i>
@@ -227,108 +223,63 @@ background: /images/filename.png
       </span>
     </div>
     
-	<h1 class="entry-title"><a href="/posts/code-highlighting-post/" rel="bookmark" title="Syntax Highlighting Post" itemprop="url">Syntax Highlighting Post</a></h1>
+	<h1 class="entry-title"><a href="/posts/sample-post-images/" rel="bookmark" title="A Post with Images" itemprop="url">A Post with Images</a></h1>
     
   </header>
   <div class="entry-content">
     
 
-<p>Syntax highlighting is a feature that displays source code, in different colors and fonts according to the category of terms. This feature facilitates writing in a structured language such as a programming language or a markup language as both structures and syntax errors are visually distinct. Highlighting does not affect the meaning of the text itself; it is intended only for human readers.<sup class="footnote-ref" id="fnref:1"><a rel="footnote" href="#fn:1">1</a></sup></p>
+<p>Here are some examples of what a post with images might look like. If you want to display two or three images next to each other responsively use <code>figure</code> with the appropriate <code>class</code>. Each instance of <code>figure</code> is auto-numbered and displayed in the caption.</p>
 
-<h3 id="highlighted-code-blocks">Highlighted Code Blocks</h3>
+<h2 id="figures-for-images-or-video">Figures (for images or video)</h2>
 
-<p>To modify styling and highlight colors edit <code>/static/css/_sass/_syntax.scss</code>.</p>
-#container {
-    float: left;
-    margin: 0 -240px 0 0;
-    width: 100%;
-}
-<nav class="pagination" role="navigation">
-    {% if page.previous %}
-        <a href="{{ site.url }}{{ page.previous.url }}" class="btn" title="{{ page.previous.title }}">Previous article</a>
-    {% endif %}
-    {% if page.next %}
-        <a href="{{ site.url }}{{ page.next.url }}" class="btn" title="{{ page.next.title }}">Next article</a>
-    {% endif %}
-</nav><!-- /.pagination -->
-module Jekyll
-  class TagIndex < Page
-    def initialize(site, base, dir, tag)
-      @site = site
-      @base = base
-      @dir = dir
-      @name = 'index.html'
-      self.process(@name)
-      self.read_yaml(File.join(base, '_layouts'), 'tag_index.html')
-      self.data['tag'] = tag
-      tag_title_prefix = site.config['tag_title_prefix'] || 'Tagged: '
-      tag_title_suffix = site.config['tag_title_suffix'] || '–'
-      self.data['title'] = "#{tag_title_prefix}#{tag}"
-      self.data['description'] = "An archive of posts tagged #{tag}."
-    end
-  end
-end
+<h3 id="one-up">One Up</h3>
 
-<h3 id="standard-code-block">Standard Code Block</h3>
+<figure>
+    <a href="//farm9.staticflickr.com/8426/7758832526_cc8f681e48_b.jpg"><img src="//farm9.staticflickr.com/8426/7758832526_cc8f681e48_c.jpg" alt=""></a>
+    <figcaption><a href="//www.flickr.com/photos/80901381@N04/7758832526/" title="Morning Fog Emerging From Trees by A Guy Taking Pictures, on Flickr">Morning Fog Emerging From Trees by A Guy Taking Pictures, on Flickr</a>.</figcaption>
+</figure>
 
-<pre><code>&lt;nav class=&quot;pagination&quot; role=&quot;navigation&quot;&gt;
-    {% if page.previous %}
-        &lt;a href=&quot;{{ site.url }}{{ page.previous.url }}&quot; class=&quot;btn&quot; title=&quot;{{ page.previous.title }}&quot;&gt;Previous article&lt;/a&gt;
-    {% endif %}
-    {% if page.next %}
-        &lt;a href=&quot;{{ site.url }}{{ page.next.url }}&quot; class=&quot;btn&quot; title=&quot;{{ page.next.title }}&quot;&gt;Next article&lt;/a&gt;
-    {% endif %}
-&lt;/nav&gt;&lt;!-- /.pagination --&gt;
-</code></pre>
+<h3 id="two-up">Two Up</h3>
 
-<h3 id="fenced-code-blocks">Fenced Code Blocks</h3>
+<p>Apply the <code>half</code> class like so to display two images side by side that share the same caption.</p>
+<figure class="half">
+	<img src="/images/image-filename-1.jpg" alt="">
+	<img src="/images/image-filename-2.jpg" alt="">
+	<figcaption>Caption describing these two images.</figcaption>
+</figure>
 
-<p>To modify styling and highlight colors edit <code>/static/css/_sass/_coderay.scss</code>.</p>
-#container {
-    float: left;
-    margin: 0 -240px 0 0;
-    width: 100%;
-}
-<nav class="pagination" role="navigation">
-    {% if page.previous %}
-        <a href="{{ site.url }}{{ page.previous.url }}" class="btn" title="{{ page.previous.title }}">Previous article</a>
-    {% endif %}
-    {% if page.next %}
-        <a href="{{ site.url }}{{ page.next.url }}" class="btn" title="{{ page.next.title }}">Next article</a>
-    {% endif %}
-</nav><!-- /.pagination -->
-module Jekyll
-  class TagIndex < Page
-    def initialize(site, base, dir, tag)
-      @site = site
-      @base = base
-      @dir = dir
-      @name = 'index.html'
-      self.process(@name)
-      self.read_yaml(File.join(base, '_layouts'), 'tag_index.html')
-      self.data['tag'] = tag
-      tag_title_prefix = site.config['tag_title_prefix'] || 'Tagged: '
-      tag_title_suffix = site.config['tag_title_suffix'] || '–'
-      self.data['title'] = "#{tag_title_prefix}#{tag}"
-      self.data['description'] = "An archive of posts tagged #{tag}."
-    end
-  end
-end
+<p>And you&rsquo;ll get something that looks like this:</p>
 
-<h3 id="github-gist-embed">GitHub Gist Embed</h3>
+<figure class="half">
+    <a href="//placehold.it/1200x600.jpg"><img src="//placehold.it/600x300.jpg" alt=""></a>
+    <a href="//placehold.it/1200x600.jpg"><img src="//placehold.it/600x300.jpg" alt=""></a>
+    <img src="//placehold.it/600x300.jpg" alt="">
+    <img src="//placehold.it/600x300.jpg" alt="">
+    <figcaption>Two images.</figcaption>
+</figure>
 
-<p>An example of a Gist embed below.</p>
+<h3 id="three-up">Three Up</h3>
 
-<script src="https://gist.github.com/mmistakes/43a355923921d22cd993.js"></script>
-<div class="footnotes">
+<p>Apply the <code>third</code> class like so to display three images side by side that share the same caption.</p>
+<figure class="third">
+	<a href="//placehold.it/1200x600.jpg"><img src="//placehold.it/600x300.jpg" alt=""></a>
+	<a href="//placehold.it/1200x600.jpg"><img src="//placehold.it/600x300.jpg" alt=""></a>
+	<a href="//placehold.it/1200x600.jpg"><img src="//placehold.it/600x300.jpg" alt=""></a>
+	<figcaption>Caption describing these three images.</figcaption>
+</figure>
 
-<hr />
+<p>And you&rsquo;ll get something that looks like this:</p>
 
-<ol>
-<li id="fn:1"><a href="http://en.wikipedia.org/wiki/Syntax_highlighting">http://en.wikipedia.org/wiki/Syntax_highlighting</a>
- <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
-</ol>
-</div>
+<figure class="third">
+    <a href="//placehold.it/1200x600.jpg"><img src="//placehold.it/600x300.jpg" alt=""></a>
+    <a href="//placehold.it/1200x600.jpg"><img src="//placehold.it/600x300.jpg" alt=""></a>
+    <a href="//placehold.it/1200x600.jpg"><img src="//placehold.it/600x300.jpg" alt=""></a>
+    <a href="//placehold.it/1200x600.jpg"><img src="//placehold.it/600x300.jpg" alt=""></a>
+    <a href="//placehold.it/1200x600.jpg"><img src="//placehold.it/600x300.jpg" alt=""></a>
+    <a href="//placehold.it/1200x600.jpg"><img src="//placehold.it/600x300.jpg" alt=""></a>
+    <figcaption>Three images.</figcaption>
+</figure>
 
   </div>
 </article>
